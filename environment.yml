@@ -1,0 +1,8 @@
+name: audio-class-1
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - librosa

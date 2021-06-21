@@ -6,7 +6,7 @@ This repository contains the PyTorch code for our paper [Rethinking CNN Models f
 3. [GTZAN](https://www.kaggle.com/andradaolteanu/gtzan-dataset-music-genre-classification)
 
 ### Conda
-```
+```console
 conda create --name audio-class-1 python=3.9
 conda activate audio-class-1
 ```
@@ -18,6 +18,10 @@ The preprocessing is done separately to save time during the training of the mod
 For ESC-50: 
 ```console
 python preprocessing/preprocessingESC.py --csv_file /path/to/file.csv --data_dir /path/to/audio_data/ --store_dir /path/to/store_spectrograms/ --sampling_rate 44100
+```
+
+```console
+python preprocessing/preprocessingESC.py --csv_file ~/russellizadi/datasets/ESC-50/meta/esc50.csv --datadir ~/russellizadi/datasets/ESC-50/audio/ --store_dir ./data/ESC-50/ --sampling_rate 44100
 ```
 
 For UrbanSound8K:
