@@ -41,5 +41,5 @@ python train.py --config_path /config/your_config.json
 ```
 
 ```console
-python train.py --config_path /config/usc_densenet.json
+python train.py --config_path /config/esc_densenet.json
 ```
