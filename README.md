@@ -5,10 +5,9 @@ This repository contains the PyTorch code for our paper [Rethinking CNN Models f
 2. [UrbanSound8K](https://urbansounddataset.weebly.com/urbansound8k.html)
 3. [GTZAN](https://www.kaggle.com/andradaolteanu/gtzan-dataset-music-genre-classification)
 
-### Conda
+### Setup
 ```console
-conda create --name audio-class-1 python=3.9
-conda activate audio-class-1
+source setup.sh
 ```
 
 ### Preprocessing
@@ -21,7 +20,7 @@ python preprocessing/preprocessingESC.py --csv_file /path/to/file.csv --data_dir
 ```
 
 ```console
-python preprocessing/preprocessingESC.py --csv_file ~/russellizadi/datasets/ESC-50/meta/esc50.csv --datadir ~/russellizadi/datasets/ESC-50/audio/ --store_dir ./data/ESC-50/ --sampling_rate 44100
+python preprocessing/preprocessingESC.py --csv_file ~/russellizadi/datasets/ESC-50/meta/esc50.csv --data_dir ~/russellizadi/datasets/ESC-50/audio/ --store_dir ./spectrograms/ESC-50/ --sampling_rate 44100
 ```
 
 For UrbanSound8K:
@@ -41,3 +40,6 @@ The configurations for training the models are provided in the config folder. Th
 python train.py --config_path /config/your_config.json
 ```
 
+```console
+python train.py --config_path /config/usc_densenet.json
+```
