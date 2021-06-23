@@ -1,0 +1,12 @@
+*.pyc
+*.so
+*.egg-info
+*.whl
+*.pkl
+*.tar
+dist/
+build/
+runs/
+.ipynb_checkpoints
+.DS_Store
+.vscode

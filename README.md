@@ -41,5 +41,11 @@ python train.py --config_path /config/your_config.json
 ```
 
 ```console
-python train.py --config_path /config/esc_densenet.json
+python train.py --config_path ./config/esc_densenet.json
+```
+
+### Update
+After installing any package
+```
+conda env export --no-builds | grep -v "^prefix" > environment.yml
 ```
