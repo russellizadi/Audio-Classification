@@ -7,6 +7,8 @@ import torch
 import torchaudio
 import torchvision
 from PIL import Image
+import os
+import shutil
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--csv_file", type=str)
@@ -57,6 +59,10 @@ if __name__=="__main__":
 	audios = pd.read_csv(args.csv_file, skipinitialspace=True)
 	num_folds = 10
 
+	if os.path.exists(args.store_dir):
+		shutil.rmtree(args.store_dir)
+	os.makedirs(args.store_dir)
+	
 	for i in range(1, num_folds+1):
 		training_audios = audios.loc[audios["fold"]!=i]
 		validation_audios = audios.loc[audios["fold"]==i]

@@ -41,6 +41,10 @@ def train(model, device, data_loader, optimizer, loss_fn):
 
             t.set_postfix(loss='{:05.3f}'.format(loss_avg()))
             t.update()
+
+            del inputs 
+            del target
+            torch.cuda.empty_cache()
     return loss_avg()
 
 
@@ -66,11 +70,10 @@ def train_and_evaluate(model, device, train_loader, val_loader, optimizer, loss_
         writer.add_scalar("data{}/valLoss{}".format(params.dataset_name, split), acc, epoch)
     writer.close()
 
-
 if __name__ == "__main__":
     args = parser.parse_args()
     params = utils.Params(args.config_path)
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device(f"cuda:{params.cuda}" if torch.cuda.is_available() else "cpu")
 
     for i in range(1, params.num_folds+1):
         if params.dataaug:

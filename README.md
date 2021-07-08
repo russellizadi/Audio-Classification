@@ -20,7 +20,7 @@ python preprocessing/preprocessingESC.py --csv_file /path/to/file.csv --data_dir
 ```
 
 ```console
-python preprocessing/preprocessingESC.py --csv_file ~/russellizadi/datasets/ESC-50/meta/esc50.csv --data_dir ~/russellizadi/datasets/ESC-50/audio/ --store_dir ./spectrograms/ESC-50/ --sampling_rate 44100
+python preprocessing/preprocessingESC.py --csv_file ~/russellizadi/datasets/ESC-50/meta/esc50.csv --data_dir ~/russellizadi/datasets/ESC-50/audio/ --store_dir ./spectrograms/ESC/ --sampling_rate 44100
 ```
 
 For UrbanSound8K:
@@ -28,9 +28,17 @@ For UrbanSound8K:
 python preprocessing/preprocessingUSC.py --csv_file /path/to/csv_file/ --data_dir /path/to/audio_data/ --store_dir /path/to/store_spectrograms/
 ```
 
+```console
+python preprocessing/preprocessingUSC.py --csv_file ~/russellizadi/datasets/UrbanSound8K/metadata/UrbanSound8K.csv --data_dir ~/russellizadi/datasets/UrbanSound8K/audio/ --store_dir ./spectrograms/USC/ 
+```
+
 For GTZAN:
 ```console
 python preprocessing/preprocessingGTZAN.py --data_dir /path/to/audio_data/ --store_dir /path/to/store_spectrograms/ --sampling_rate 22050
+```
+
+```console
+python preprocessing/preprocessingGTZAN.py  --data_dir ~/russellizadi/datasets/GTZAN/genres_original/ --store_dir ./spectrograms/GTZAN/ 
 ```
 
 ### Training the Models
@@ -42,10 +50,17 @@ python train.py --config_path /config/your_config.json
 
 ```console
 python train.py --config_path ./config/esc_densenet.json
+python train.py --config_path ./config/gtzan_densenet.json
+python train.py --config_path ./config/usc_densenet.json
 ```
 
-### Update
+### Update the environment
 After installing any package
 ```
 conda env export --no-builds | grep -v "^prefix" > environment.yml
+```
+
+### Tensorboard
+```
+tensorboard --logdir=./runs/
 ```

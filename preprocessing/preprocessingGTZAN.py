@@ -7,8 +7,9 @@ import torch
 import torchaudio
 import torchvision
 from PIL import Image
-import os
 from joblib import dump
+import os
+import shutil
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--data_dir", type=str)
@@ -52,6 +53,10 @@ def extract_features(audios):
 if __name__=="__main__":
 	args = parser.parse_args()
 	root_dir = args.data_dir
+
+	if os.path.exists(args.store_dir):
+		shutil.rmtree(args.store_dir)
+	os.makedirs(args.store_dir)
 
 	training_audios = []
 	validation_audios = []

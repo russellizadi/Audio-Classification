@@ -9,7 +9,7 @@ class Clean(setuptools.Command):
     def finalize_options(self):
         pass
     def run(self):
-        os.system('rm -vrf ./build ./dist ./*.pyc ./*.tgz ./*.egg-info')
+        os.system('rm -rf ./build ./dist ./*.pyc ./*.tgz ./*.egg-info')
 
 setuptools.setup(
     name=os.getcwd().split("/")[-1],
